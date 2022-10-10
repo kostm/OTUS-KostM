@@ -1,0 +1,41 @@
+task 1
+
+const orders = [
+        ["q", "r"],
+        ["q", "w", "a"],
+        ["a", "b"],
+        ["a", "c"],
+        ["q", "e"],
+      ];
+
+      function maxItemAssociation(arg) {
+        let group = [];
+
+        arg.forEach((a) => {
+          //debugger;
+          !group.length
+            ? group.push(new Set(a))
+            : group.forEach((buy) => {
+                for (const item of a) {
+                  buy.has(item)
+                    ? a.forEach((el) => {
+                        buy.add(el);
+                      })
+                    : group.push(new Set(a));
+                }
+              });
+        });
+
+        group = group.map((buy) => [...buy].sort());
+
+        return group[0];
+      }
+      console.log(maxItemAssociation(orders));
+	  
+task 2
+
+const totalSum = (firstArg) => (secondArg) =>
+        typeof secondArg === "number" && typeof firstArg === "number"
+          ? totalSum(firstArg + secondArg)
+          : firstArg;
+      console.log(totalSum(5)(2)(7)(22)());
