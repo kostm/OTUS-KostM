@@ -1,4 +1,4 @@
-task 1
+//task 1
 
 const orders = [
         ["q", "r"],
@@ -32,7 +32,7 @@ const orders = [
       }
       console.log(maxItemAssociation(orders));
 	  
-task 2
+//task 2
 
 const totalSum = (firstArg) => (secondArg) =>
         typeof secondArg === "number" && typeof firstArg === "number"
